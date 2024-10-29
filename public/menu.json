@@ -1,0 +1,62 @@
+{
+  "code": 200,
+  "msg": "加载成功",
+  "result": [
+    {
+      "id": 1,
+      "parent_id": 0,
+      "name": "首页",
+      "web_icon": "HomeFilled",
+      "sort": 0,
+      "path": "/home",
+      "level": 1,
+      "component_name": "",
+      "sub_menus": []
+    },
+    {
+      "id": 2,
+      "parent_id": 0,
+      "name": "系统管理",
+      "web_icon": "Setting",
+      "sort": 0,
+      "path": "/system",
+      "level": 0,
+      "component_name": "",
+      "sub_menus": [
+        {
+          "id": 3,
+          "parent_id": 2,
+          "name": "角色管理",
+          "web_icon": "Present",
+          "sort": 0,
+          "path": "/system/role",
+          "level": 1,
+          "component_name": "system/role/RoleList.vue",
+          "sub_menus": []
+        },
+        {
+          "id": 4,
+          "parent_id": 2,
+          "name": "菜单管理",
+          "web_icon": "Menu",
+          "sort": 0,
+          "path": "/system/menu",
+          "level": 1,
+          "component_name": "system/menu/MenuList.vue",
+          "sub_menus": []
+        },
+        {
+          "id": 5,
+          "parent_id": 2,
+          "name": "用户管理",
+          "web_icon": "User",
+          "sort": 0,
+          "path": "/system/user",
+          "level": 1,
+          "component_name": "system/user/UserList.vue",
+          "sub_menus": []
+        }
+      ]
+    }
+  ]
+}
