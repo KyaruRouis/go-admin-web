@@ -75,4 +75,7 @@ import TopBar from "@/views/system/layout/header/TopBar.vue";
   background-repeat: no-repeat;
 }
 
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 206px;
+}
 </style>

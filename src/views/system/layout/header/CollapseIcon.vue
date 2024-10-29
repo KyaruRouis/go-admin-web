@@ -2,9 +2,9 @@
 import {useSettingStore} from "@/store/modules/setting.ts";
 import {computed} from "vue";
 const settingStore = useSettingStore();
-const isCollapsed = computed(()=> !settingStore.isCollapsed);
+const isCollapse = computed(()=> !settingStore.isCollapse);
 const handleCollapse = () => {
-  settingStore.setCollapsed(isCollapsed.value);
+  settingStore.setCollapse(isCollapse.value);
 }
 </script>
 

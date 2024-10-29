@@ -1,21 +1,30 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import {ref,computed} from "vue"
 import {useRoute} from "vue-router"
 import {useMenuStore} from "@/store/modules/menu"
+import {useSettingStore} from "@/store/modules/setting"
+
+
 const route = useRoute()
 // 获取菜单数据
 const {routers} = useMenuStore()
 const menuData = ref()
 menuData.value = routers
+
+const settingStore = useSettingStore()
+// 是否折叠
+const isCollapse = computed(()=>!settingStore.isCollapse)
 </script>
 
 <template>
   <el-menu color="white" text-color="#67879b" router
            :default-active="route.path"
            :unique-opened="false" :default-openeds="[route.path]"
-           class="el-menu-vertical-demo">
+           class="el-menu-vertical-demo"
+           :collapse="isCollapse"
+           :collapse-transition="true">
     <!--logo start -->
-    <div class="imagBox">
+    <div class="imagBox" v-if="!isCollapse">
       <img src="@/assets/logo01.png">
     </div>
     <!-- logo end -->
@@ -27,7 +36,7 @@ menuData.value = routers
           <el-icon>
             <component :is="v.web_icon"></component>
           </el-icon>
-          {{v.name}}
+          <span>{{v.name}}</span>
         </template>
 
         <el-menu-item v-for="child in v.sub_menus" :key="child.path" :index="child.path">

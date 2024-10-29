@@ -86,4 +86,14 @@ src/store/modules目录下新建setting.ts文件
 
 src/views/system/layout/header目录下新建CollapseIcon.vue组件
 
-layout目录下Index.vue组件，修改el-menu标签
+layout/aside目录下Index.vue组件，修改el-menu标签
+
+编写计算属性isCollapse
+
+CollapseIcon.vue组件导入到TopBar.vue
+
+修改TopBar.vue
+
+修改layout/aside目录下Index.vue组件，增加隐藏logo功能
+
+修改layout下的Index.vue组件，去除左下方滚动条

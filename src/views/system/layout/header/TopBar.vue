@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import {SwitchButton} from '@element-plus/icons-vue'
+import {SwitchButton} from "@element-plus/icons-vue"
+import CollapseIcon from "@/views/system/layout/header/CollapseIcon.vue"
 </script>
 
 <template>
 <div class="main">
+  <div class="tool-left">
+    <CollapseIcon/>
+  </div>
   <div class="linkBox">
     <!--登录用户信息 start-->
     <el-popover :width="300">
@@ -92,5 +96,11 @@ import {SwitchButton} from '@element-plus/icons-vue'
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.main {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  box-shadow: rgb(0 0 0 /10%) 0px 0px 10px;
+  background: white;
+}
 </style>
