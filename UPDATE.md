@@ -128,3 +128,54 @@ el-tabs标签修改
 
 引入/tags/Index.vue组件
 
+### 关闭tabs标签功能实现
+
+#### 关闭当前标签页
+
+##### src/views/system/layout/tags/Index.vue
+
+新增函数isActive判断是否删除当前标签页
+
+新增tabs标签函数removeTab
+
+##### src/store/modules/tagsViews.ts
+
+新增函数delView
+
+新增函数delVisitedView
+
+#### 关闭其他标签页
+
+##### src/views/system/layout/tags/components/MoreButton.vue
+
+新增目录components
+
+新增组件MoreButton.vue
+
+新增布局
+
+导入相关依赖
+
+新增函数closeOtherTab
+
+##### src/store/modules/tagsViews.ts
+
+新增delOtherViews函数
+
+##### src/views/system/layout/tags/Index.vue
+
+引入tags/components/MoreButton.vue
+
+#### 关闭所有标签页
+
+##### src/views/system/layout/tags/components/MoreButton.vue
+
+新增布局
+
+新增函数closeAllTab
+
+##### src/store/modules/tagsViews.ts
+
+新增函数delAllViews
+
+新增函数goHome

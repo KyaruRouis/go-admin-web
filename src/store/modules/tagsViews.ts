@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import router from "../../router";
 export const useTagsViewsStore = defineStore({
     id: "tagsViewsState",
     state: ()=> ({
@@ -19,6 +20,37 @@ export const useTagsViewsStore = defineStore({
         },
         addView(view:any){
             this.addVisitedView(view)
+        },
+        delView(activeTabPath){
+            return new Promise(resolve=>{
+                this.delVisitedView(activeTabPath)
+                resolve({
+                    visitedViews:[...this.visitedViews]
+                })
+            })
+        },
+        delVisitedView(path){
+            return new Promise(resolve=> {
+                this.visitedViews = this.visitedViews.filter(v => {
+                    return (v.path !== path || v.meta.affix)
+                })
+                resolve([...this.visitedViews])
+            })
+        },
+        delOtherViews(path){
+            this.visitedViews = this.visitedViews.filter(item => {
+                return item.path === path || item.meta.affix
+            })
+        },
+        delAllViews(){
+          return new Promise(resolve=> {
+              this.visitedViews = this.visitedViews.filter(v => v.meta.affix)
+              resolve([...this.visitedViews])
+          })
+        },
+        goHome(){
+            this.activeTabsValue = '/home'
+            router.push({path:'/home'})
         },
     }
 })

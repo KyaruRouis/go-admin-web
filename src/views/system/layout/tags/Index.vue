@@ -3,6 +3,7 @@ import {ref,computed,watch,onMounted} from "vue";
 import {useRoute,useRouter} from "vue-router";
 import {useTagsViewsStore} from "@/store/modules/tagsViews";
 import {TabsPaneContext} from "element-plus";
+import MoreButton from "@/views/system/layout/tags/components/MoreButton.vue";
 
 const tagsViewsStore = useTagsViewsStore();
 const route = useRoute();
@@ -47,6 +48,19 @@ const addTabs = ()=> {
   return false
 }
 
+// 判断是否删除的是当前的tabs标签
+const isActive = (path)=>{
+  return path === route.path
+}
+
+// 删除tabs标签
+const removeTab = async (activeTabPath:string) => {
+  if(isActive(activeTabPath)) {
+    toLastView(activeTabPath)
+  }
+  await tagsViewsStore.delView(activeTabPath)
+}
+
 onMounted(()=> {
   addTabs()
 })
@@ -59,12 +73,13 @@ watch(route,()=> {
 <template>
   <div class="main-tabs-view">
     <div class="tabs-view">
-      <el-tabs v-model="activeTabsValue" type="card" @tab-click="tabClick">
+      <el-tabs v-model="activeTabsValue" type="card" @tab-click="tabClick" @tab-remove="removeTab">
         <el-tab-pane v-for="item in visitedViews"
                      :key="item.path"
                      :path="item.path"
                      :label="item.title"
-                     :closable="item.meta&&item.meta.affix">
+                     :name="item.path"
+                     :closable="!(item.meta&&item.meta.affix)">
         <template #label>
           <el-icon class="tabs-icon" v-if="item.icon">
             <component :is="item.icon"></component>/
@@ -74,7 +89,9 @@ watch(route,()=> {
         </el-tab-pane>
       </el-tabs>
     </div>
-    <div class="right-tbn"></div>
+    <div class="right-tbn">
+      <MoreButton/>
+    </div>
   </div>
 </template>
 
