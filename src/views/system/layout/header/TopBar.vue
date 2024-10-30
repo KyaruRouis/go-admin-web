@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import {SwitchButton} from "@element-plus/icons-vue"
 import CollapseIcon from "@/views/system/layout/header/CollapseIcon.vue"
+import Hamburger from "@/views/system/layout/header/Hamburger.vue";
 </script>
 
 <template>
 <div class="main">
   <div class="tool-left">
     <CollapseIcon/>
+    <Hamburger/>
   </div>
   <div class="linkBox">
     <!--登录用户信息 start-->
@@ -102,5 +104,11 @@ import CollapseIcon from "@/views/system/layout/header/CollapseIcon.vue"
   height: 70px;
   box-shadow: rgb(0 0 0 /10%) 0px 0px 10px;
   background: white;
+}
+
+.tool-left{
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 </style>

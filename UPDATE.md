@@ -91,3 +91,11 @@ CollapseIcon.vue组件导入到TopBar.vue
 修改layout/aside目录下Index.vue组件，增加隐藏logo功能
 
 修改layout下的Index.vue组件，去除左下方滚动条
+
+## 面包屑和标签页
+
+### 面包屑布局
+
+src/views/system/layout/header/Hamburger.vue组件
+
+Hamburger.vue组件导入到TopBar.vue中
