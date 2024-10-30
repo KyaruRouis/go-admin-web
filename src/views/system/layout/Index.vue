@@ -35,7 +35,8 @@ import TopBar from "@/views/system/layout/header/TopBar.vue";
 .el-header {
   --el-header-padding: 0px;
   --el-header-height: 0px;
-  height: 80px;
+  width: auto;
+  height: 110px;
   background: #F3F3F3;
 }
 

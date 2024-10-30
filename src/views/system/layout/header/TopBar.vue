@@ -2,6 +2,7 @@
 import {SwitchButton} from "@element-plus/icons-vue"
 import CollapseIcon from "@/views/system/layout/header/CollapseIcon.vue"
 import Hamburger from "@/views/system/layout/header/Hamburger.vue";
+import TabsView from "@/views/system/layout/tags/Index.vue"
 </script>
 
 <template>
@@ -54,15 +55,19 @@ import Hamburger from "@/views/system/layout/header/Hamburger.vue";
       </template>
     </el-popconfirm>
     <!--退出系统 end-->
-
   </div>
 </div>
+  <!--tabs多标签 start-->
+  <TabsView/>
+  <!--tabs多标签 end-->
 </template>
 
 <style scoped>
 .main {
+  display: flex;
+  justify-content: space-between;
   height: 70px;
-  box-shadow: rgba(0 0 0 /10%) 0px 0px 10px;
+  box-shadow: rgb(0 0 0 /10%) 0px 0px 10px;
   background: white;
 }
 .linkBox {
@@ -98,14 +103,6 @@ import Hamburger from "@/views/system/layout/header/Hamburger.vue";
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.main {
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
-  box-shadow: rgb(0 0 0 /10%) 0px 0px 10px;
-  background: white;
-}
-
 .tool-left{
   display: flex;
   align-items: center;

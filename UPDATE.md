@@ -99,3 +99,32 @@ CollapseIcon.vue组件导入到TopBar.vue
 src/views/system/layout/header/Hamburger.vue组件
 
 Hamburger.vue组件导入到TopBar.vue中
+
+### Tabs 标签页布局功能实现
+
+src/views/system/layout/新建tags目录，在tags目录中编写Index.vue组件
+
+src/store/modules下编写tagsViews.ts文件
+
+### 新增Tabs标签页功能实现
+
+#### src/store/modules/tagsViews.ts
+
+新增addVisitedView函数
+
+新增addView函数
+
+#### src/views/system/layout/tags/Index.vue
+
+定义点击tabs标签事件tabClick函数
+
+el-tabs标签修改
+
+定义addTabs函数
+
+修改样式
+
+#### src/views/system/layout/header/TopBar.vue
+
+引入/tags/Index.vue组件
+
