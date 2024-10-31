@@ -4,7 +4,21 @@ This template should help get you started developing with Vue 3 and TypeScript i
 
 Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
 
-# 使用帮助（开发过程请看UPDATE.md）
+# 项目搭建
+
+## nodejs v20.18.0
+
+## pinia
+
+## element plus
+
+## Axios
+
+## svg
+
+## nprogress
+
+# 使用帮助
 
 启动命令
 
