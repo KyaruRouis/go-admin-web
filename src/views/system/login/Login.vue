@@ -33,6 +33,7 @@ import LoginForm from "@/assets/login/components/LoginForm.vue";
 .login-container {
   background-color: #f0f2f5;
   height: 100%;
+  max-height: 800px;
   width: 100%;
   overflow: hidden;
   display: flex;
