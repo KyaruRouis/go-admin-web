@@ -3,6 +3,16 @@ import {SwitchButton} from "@element-plus/icons-vue"
 import CollapseIcon from "@/views/system/layout/header/CollapseIcon.vue"
 import Hamburger from "@/views/system/layout/header/Hamburger.vue";
 import TabsView from "@/views/system/layout/tags/Index.vue"
+
+// 退出系统
+const exit = ()=> {
+  // 清除用户登录信息
+  window.localStorage.removeItem("userStore");
+  // 清除用户对应的菜单数据
+  window.localStorage.removeItem("menuState");
+  // 返回登录页
+  window.location.href="/"
+}
 </script>
 
 <template>
@@ -45,7 +55,7 @@ import TabsView from "@/views/system/layout/tags/Index.vue"
 
     <!--退出系统 start-->
     <el-popconfirm confirm-button-text="确认" cancel-button-text="取消" icon="SwitchButton"
-    icon-color="#30bcd7" title="确认退出系统吗？">
+    icon-color="#30bcd7" title="确认退出系统吗？" @confirm="exit">
       <template #reference>
         <el-link :underline="false">
           <el-icon>

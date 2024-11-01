@@ -7,16 +7,16 @@ export default {
   name: "baseSvgIcon",
   props: {
     iconClass: {type: String},
-    className: {type: String},
+    className: {type: String}
   },
   setup(props) {
     const iconName = computed(() => {
-      return props.iconClass ? '#icon-${props.iconClass}' : '#icon'
+      return props.iconClass ? `#icon-${props.iconClass}` : '#icon'
     })
     const svgClass = computed(() => {
-      return props.className ? '#icon-${props.className}' : 'svg-icon'
+      return props.className ? `#icon-${props.className}` : 'svg-icon'
     })
-    return {iconName, svgClass}
+    return {iconName,svgClass}
   }
 }
 </script>

@@ -2,6 +2,7 @@ import Nprogress from "@/config/nprogress.ts";
 // 1、导入vue-router模块
 import {createRouter,createWebHistory} from 'vue-router'
 import {useMenuStore} from "../store/modules/menu.ts";
+import {useUserStore} from "../store/modules/user.ts";
 
 // 定义路由和组件的映射关系
 const modules = import.meta.glob("../views/**/**.vue")
@@ -9,9 +10,16 @@ const modules = import.meta.glob("../views/**/**.vue")
 // 2、定义一些路由地址，每一个都需要映射到一个组件
 const routes = [{
         path: '/',
+        redirect: '/login',
         name: 'Login',
         meta: { title: '后台管理系统-登录' },
-        component: ()=> import('../views/Login.vue'),
+        component: ()=> import('../views/system/login/Login.vue'),
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        meta: { title: '后台管理系统-登录' },
+        component: ()=> import('../views/system/login/Login.vue'),
     },
     {
         path: '/index',
@@ -38,10 +46,30 @@ const router = createRouter({
 // 防止首次或者刷新界面路由失效
 let registerRouteFresh = true
 
+
+// 设置白名单
+const whiteList = ['/login']
+
 // 路由拦截守卫
 router.beforeEach(async (to, from, next) => {
     // 1、NProgress开始
     Nprogress.start()
+
+    // 如果是白名单的路径，直接放行
+    const some = whiteList.some(function (item){
+        return to.path.indexOf(item)!==-1
+    })
+
+    if(some){
+        next()
+    }else {
+        // 判断是否已经登录
+        const userStore = useUserStore()
+        // 没有登录，跳转到登录页面
+        if(userStore.token=='' || userStore.token==null){
+            return next({path:`/login?redirect=${to.path}`, replace:true})
+        }
+    }
 
     //菜单信息
     const menuStore = useMenuStore()

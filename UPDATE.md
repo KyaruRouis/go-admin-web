@@ -1,6 +1,6 @@
 # 前端项目搭建
 
-## 1.项目创建
+## 项目创建
 
 npm create vite@latest
 
@@ -8,39 +8,39 @@ npm create vite@latest
 
 选择vue，选择TS
 
-## 2.vue-router4安装和引入
+### 1.vue-router4安装和引入
 
 npm install vue-router@4
 
-## 3.pinia安装和引入
+### 2.pinia安装和引入
 
 npm install pinia
 
 npm install pinia-plugin-persistedstate
 
-## 4.element plus安装和引入
+### 3.element plus安装和引入
 
 npm install element-plus
 
-## 5.安装Axios
+### 4.安装Axios
 
 npm install axios
 
-## 6.安装svg插件
+### 5.安装svg插件
 
 npm install vite-plugin-svg-icons -D
 
-## 7.安装nprogress进度条插件
+### 6.安装nprogress进度条插件
 
 npm install nprogress --save
 
-## 8.设置别名和多配置环境
+## 设置别名和多配置环境
 
 vite.config.ts文件
 
 根目录创建viteenv目录
 
-## 9. Layout布局
+## Layout布局
 
 ### 主页面布局
 
@@ -179,3 +179,71 @@ el-tabs标签修改
 新增函数delAllViews
 
 新增函数goHome
+
+## 登录功能与退出功能
+
+### 登录页面布局
+
+#### src/views/system/login/Login.vue
+
+##### system目录下新建login目录
+
+##### Login.vue组件迁移至login目录
+
+##### Login布局设计
+
+### 登录表单组件布局
+
+#### src/views/system/login/components/LoginForm.vue
+
+##### login目录下新建components目录
+
+##### LoginForm布局设计，相关依赖导入
+
+##### 定义表单规则，定义表单数据对象
+
+##### 新增密码显示与隐藏函数
+
+### 登录样式设计
+
+#### src/views/system/login/Login.vue
+
+##### 导入LoginForm.vue并使用组件
+
+##### 编写样式
+
+#### src/views/system/login/components/LoginForm.vue
+
+##### 编写样式
+
+#### src/style.css
+
+##### 修改样式
+
+### 登录功能实现
+
+#### src/store/modules/user.ts
+
+##### 设置登录信息
+
+#### src/api/system/login/login.ts
+
+##### 实现登录接口
+
+#### src/views/system/login/components/LoginForm.vue
+
+##### 新增提交表单函数submitForm
+
+### 退出功能实现
+
+#### src/views/system/layout/header/TopBar.vue
+
+##### 新增退出系统函数
+
+#### router/index/ts
+
+##### 设置白名单功能，未登录也可访问对应地址
+
+##### 新增路由地址
+
+##### 新增判断登录状态函数
