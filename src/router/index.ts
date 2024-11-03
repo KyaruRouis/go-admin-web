@@ -100,7 +100,7 @@ router.beforeEach(async (to, from, next) => {
                     icon: item.web_icon,
                     title: item.name,
                 },
-                component: modules["../views/${item.component_name}"]
+                component: modules[`../views/${item.component_name}`]
             })
         }
         if (item.sub_menus){
@@ -113,7 +113,7 @@ router.beforeEach(async (to, from, next) => {
                             icon: subItem.web_icon,
                             title: subItem.name,
                         },
-                        component: modules["../views/${subItem.component_name}"]
+                        component: modules[`../views/${subItem.component_name}`]
                     })
                 }
             })

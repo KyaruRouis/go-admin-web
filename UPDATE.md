@@ -8,29 +8,29 @@ npm create vite@latest
 
 选择vue，选择TS
 
-### 1.vue-router4安装和引入
+### vue-router4安装和引入
 
 npm install vue-router@4
 
-### 2.pinia安装和引入
+### pinia安装和引入
 
 npm install pinia
 
 npm install pinia-plugin-persistedstate
 
-### 3.element plus安装和引入
+### element plus安装和引入
 
 npm install element-plus
 
-### 4.安装Axios
+### 安装Axios
 
 npm install axios
 
-### 5.安装svg插件
+### 安装svg插件
 
 npm install vite-plugin-svg-icons -D
 
-### 6.安装nprogress进度条插件
+### 安装nprogress进度条插件
 
 npm install nprogress --save
 
@@ -247,3 +247,67 @@ el-tabs标签修改
 ##### 新增路由地址
 
 ##### 新增判断登录状态函数
+
+## 管理员列表数据获取功能
+
+### 管理员页面组件布局
+
+#### src/views/system/user/UserList.vue
+
+##### 新增user目录
+
+##### 新增UserList.vue组件
+
+##### 页面头部布局
+
+##### 页面表格布局
+
+##### 分页布局
+
+#### src/main.ts
+
+##### 设置为中文
+
+### 管理员列表数据功能实现
+
+#### src/views/system/user/UserList.vue
+
+##### 新增loadData函数
+
+#### src/api/system/user/user.ts
+
+##### 新增user目录
+
+##### 新增user.ts文件
+
+##### 新增api接口获取用户列表数据
+
+### 时间格式化功能实现
+
+#### src/utils/date.ts
+
+##### 新增utils目录
+
+##### 新增data.ts文件
+
+#### src/views/system/user/UserList.vue
+
+##### 导入data.ts
+
+### 刷新和搜索管理员列表数据功能实现
+
+#### src/views/system/user/UserList.vue
+
+##### 新增refresh函数
+
+##### 新增search函数
+
+##### 修改loadData函数查询参数
+
+### 列表数据分页和序号功能实现
+
+#### src/views/system/user/UserList.vue
+
+##### 新增changepage函数
+
+##### 新增Nindex函数
