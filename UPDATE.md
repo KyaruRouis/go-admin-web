@@ -311,3 +311,75 @@ el-tabs标签修改
 ##### 新增changepage函数
 
 ##### 新增Nindex函数
+
+## 添加管理员功能
+
+### 添加管理员页面布局
+
+#### src/views/system/user/components/AddUser.vue
+
+##### 新建components目录
+
+##### 新建AddUser.vue组件
+
+##### 设计布局与样式
+
+##### 新增formUser表单数据对象
+
+##### 新增subLoading按钮状态变量
+
+#### src/views/system/user/UserList.vue
+
+##### 导入src/views/system/user/components/AddUser.vue
+
+##### 使用AddUser.vue组件
+
+##### 设计样式
+
+##### 新增addUser函数
+
+### 添加管理员与取消添加管理员前端实现
+
+#### src/views/system/user/components/AddUser.vue
+
+##### 新增addUser函数
+
+#### src/api/system/user/user.ts
+
+##### 新增调用后端添加管理员信息接口函数
+
+#### src/views/system/user/UserList.vue
+
+##### 新增closeAddUserForm函数
+
+#### src/views/system/user/components/AddUser.vue
+
+##### 定义事件closeAddUserForm
+
+##### 新增关闭表单的close函数
+
+### 提交表单后关闭表格与刷新表格功能
+
+#### src/views/system/user/UserList.vue
+
+##### 导入添加管理员信息组件
+
+##### 新增success函数
+
+#### src/views/system/user/components/AddUser.vue
+
+##### 定义事件success
+
+##### 修改addUser函数
+
+### 校验表单输入
+
+#### src/views/system/user/components/AddUser.vue
+
+##### 定义约束规则
+
+##### 定义表单实例
+
+##### 修改el-form标签
+
+##### 修改addUser函数

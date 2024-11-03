@@ -8,3 +8,12 @@ export function getUserListApi(params:object) {
         params
     })
 }
+
+// 新增管理员信息
+export function addUserApi(data: object) {
+    return request({
+        url: 'user',
+        method: 'post',
+        data
+    })
+}

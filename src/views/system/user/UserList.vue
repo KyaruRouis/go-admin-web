@@ -3,6 +3,7 @@ import {ref,reactive,toRefs,onMounted} from "vue";
 import {getUserListApi} from "@/api/system/user/user.ts";
 import {formatTime} from "@/utils/date.ts";
 import {ElMessage} from "element-plus";
+import AddUser from "@/api/system/user/components/AddUser.vue";
 
 const state = reactive({
   // 搜索关键字
@@ -68,6 +69,25 @@ const Nindex = (index: number) => {
   // 每页行数
   const pageSize = state.pageSize
   return index+1+(page-1)*pageSize
+}
+
+// 新增管理员弹出框状态
+const addUserVisible = ref(false)
+
+// 弹出新增管理员表单的函数
+const addUser = ()=> {
+  addUserVisible.value = true
+}
+
+// 关闭新增管理员弹出框
+const closeAddUserForm = ()=> {
+  addUserVisible.value = false
+}
+
+// 提交表单后处理函数
+const success = () => {
+  closeAddUserForm()
+  loadData(state)
 }
 
 // 挂在后加载列表数据
@@ -173,6 +193,20 @@ const {tableData,pageSize,loading,total,searchValue} = toRefs(state);
 
     </div>
     <!--表格区域 end-->
+
+    <!--新增管理员弹出框 start-->
+    <el-dialog v-model="addUserVisible" align-center width="42%" destroy-on-close>
+      <template #header>
+        <div class="my-header">
+          <el-icon size="26px"><EditPen/></el-icon>
+          <h1>添加管理员</h1>
+        </div>
+      </template>
+      <!--添加管理员组件 start-->
+      <AddUser @closeAddUserForm="closeAddUserForm" @success="success"/>
+      <!--添加管理员组件 end-->
+    </el-dialog>
+    <!--新增管理员弹出框 end-->
   </el-card>
 </template>
 
@@ -197,6 +231,13 @@ const {tableData,pageSize,loading,total,searchValue} = toRefs(state);
 .my-button {
   display: flex;
   justify-content: space-between;
+}
+
+/*自定义弹出框头部样式*/
+.my-header {
+  display: flex;
+  justify-content: flex-start;
+  color: #e99d53;
 }
 
 /*自定义分页样式*/
