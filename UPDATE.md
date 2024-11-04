@@ -248,25 +248,7 @@ el-tabs标签修改
 
 ##### 新增判断登录状态函数
 
-## 管理员列表数据获取功能
-
-### 管理员页面组件布局
-
-#### src/views/system/user/UserList.vue
-
-##### 新增user目录
-
-##### 新增UserList.vue组件
-
-##### 页面头部布局
-
-##### 页面表格布局
-
-##### 分页布局
-
-#### src/main.ts
-
-##### 设置为中文
+##### 
 
 ### 管理员列表数据功能实现
 
@@ -312,74 +294,196 @@ el-tabs标签修改
 
 ##### 新增Nindex函数
 
-## 添加管理员功能
+##### 
 
-### 添加管理员页面布局
+## 管理员功能模块
 
-#### src/views/system/user/components/AddUser.vue
+### 管理员列表数据获取功能
 
-##### 新建components目录
+#### 管理员页面组件布局
 
-##### 新建AddUser.vue组件
+##### src/views/system/user/UserList.vue
 
-##### 设计布局与样式
+新增user目录
 
-##### 新增formUser表单数据对象
+新增UserList.vue组件
 
-##### 新增subLoading按钮状态变量
+页面头部布局
+
+页面表格布局
+
+分页布局
+
+##### src/main.ts
+
+设置为中文
+
+### 添加管理员功能
+
+#### 添加管理员页面布局
+
+##### src/views/system/user/components/AddUser.vue
+
+新建components目录
+
+新建AddUser.vue组件
+
+设计布局与样式
+
+新增formUser表单数据对象
+
+新增subLoading按钮状态变量
+
+##### src/views/system/user/UserList.vue
+
+导入src/views/system/user/components/AddUser.vue
+
+使用AddUser.vue组件
+
+设计样式
+
+新增addUser函数
+
+#### 添加管理员与取消添加管理员前端实现
+
+##### src/views/system/user/components/AddUser.vue
+
+新增addUser函数
+
+##### src/api/system/user/user.ts
+
+新增调用后端添加管理员信息接口函数
+
+##### src/views/system/user/UserList.vue
+
+新增closeAddUserForm函数
+
+##### src/views/system/user/components/AddUser.vue
+
+定义事件closeAddUserForm
+
+新增关闭表单的close函数
+
+#### 提交表单后关闭表格与刷新表格功能
+
+##### src/views/system/user/UserList.vue
+
+导入添加管理员信息组件
+
+新增success函数
+
+##### src/views/system/user/components/AddUser.vue
+
+定义事件success
+
+修改addUser函数
+
+#### 校验表单输入
+
+##### src/views/system/user/components/AddUser.vue
+
+定义约束规则
+
+定义表单实例
+
+修改el-form标签
+
+修改addUser函数
+
+### 更新管理员功能
+
+#### 更新管理员的页面布局
+
+##### src/views/sytem/user/components/EditUser.vue
+
+设计管理员页面布局
+
+设计样式
+
+定义formUser表单数据对象
+
+定义按钮状态subLoading变量
+
+引入父组件UserList.vue组件的userInfo对象
+
+##### src/views/system/user/UserList.vue
+
+导入EditUser.vue
+
+新增editUser函数
+
+##### src/api/system/user/user.ts
+
+新增getUserApi函数
+
+#### 更新管理员前端功能实现
+
+##### src/views/sytem/user/components/EditUser.vue
+
+新增editUser函数
+
+##### src/api/system/user/user.ts
+
+新增调用后端更新管理员信息的接口函数editUserApi
+
+#### 管理员表单取消功能实现
+
+##### src/views/system/user/UserList.vue
+
+编辑用户组件
+
+新增closeEditUserForm函数
+
+##### src/views/sytem/user/components/EditUser.vue
+
+定义事件
+
+新增close函数
+
+#### 提交表单后关闭更新管理员表单和刷新表格功能实现
+
+##### src/views/system/user/UserList.vue
+
+编辑用户组件
+
+修改success函数
+
+##### src/views/sytem/user/components/EditUser.vue
+
+定义事件
+
+新增editUser函数
+
+#### 校验更新管理员表单功能实现
+
+##### src/views/sytem/user/components/EditUser.vue
+
+定义约束规则对象
+
+定义表单实例对象
+
+修改el-form标签
+
+修改editUser函数
+
+### 删除管理员功能
 
 #### src/views/system/user/UserList.vue
 
-##### 导入src/views/system/user/components/AddUser.vue
+##### 新增delUser函数
 
-##### 使用AddUser.vue组件
+#### src/api/system/user/usert.ts
 
-##### 设计样式
+##### 新增delUserApi函数
 
-##### 新增addUser函数
+### 导出管理员功能
 
-### 添加管理员与取消添加管理员前端实现
+#### src/utils/exportExcel.ts
 
-#### src/views/system/user/components/AddUser.vue
-
-##### 新增addUser函数
-
-#### src/api/system/user/user.ts
-
-##### 新增调用后端添加管理员信息接口函数
+##### 新建导出excel工具文件exportExcel.ts
 
 #### src/views/system/user/UserList.vue
 
-##### 新增closeAddUserForm函数
+##### 定义导出列名的数组
 
-#### src/views/system/user/components/AddUser.vue
-
-##### 定义事件closeAddUserForm
-
-##### 新增关闭表单的close函数
-
-### 提交表单后关闭表格与刷新表格功能
-
-#### src/views/system/user/UserList.vue
-
-##### 导入添加管理员信息组件
-
-##### 新增success函数
-
-#### src/views/system/user/components/AddUser.vue
-
-##### 定义事件success
-
-##### 修改addUser函数
-
-### 校验表单输入
-
-#### src/views/system/user/components/AddUser.vue
-
-##### 定义约束规则
-
-##### 定义表单实例
-
-##### 修改el-form标签
-
-##### 修改addUser函数
+##### 新增函数exportExcelAction

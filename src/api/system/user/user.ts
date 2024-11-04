@@ -17,3 +17,28 @@ export function addUserApi(data: object) {
         data
     })
 }
+
+// 根据ID获取管理员信息
+export function getUserApi(id:number) {
+    return request({
+        url: `user/detail/${id}`,
+        method: 'get'
+    })
+}
+
+// 更新管理员信息
+export function editUserApi(data:object) {
+    return request({
+        url: 'user',
+        method: 'put',
+        data
+    })
+}
+
+// 删除管理员信息
+export function delUserApi(id:number) {
+    return request({
+        url: `user/${id}`,
+        method: 'delete'
+    })
+}

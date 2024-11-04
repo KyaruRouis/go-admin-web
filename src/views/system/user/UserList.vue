@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import {ref,reactive,toRefs,onMounted} from "vue";
-import {getUserListApi} from "@/api/system/user/user.ts";
+import {getUserListApi, getUserApi, editUserApi, delUserApi} from "@/api/system/user/user.ts";
 import {formatTime} from "@/utils/date.ts";
 import {ElMessage} from "element-plus";
 import AddUser from "@/api/system/user/components/AddUser.vue";
+import EditUser from "@/views/system/user/components/EditUser.vue";
+import {exportExcel} from "@/utils/exportExcel.ts";
 
 const state = reactive({
   // 搜索关键字
@@ -88,6 +90,7 @@ const closeAddUserForm = ()=> {
 const success = () => {
   closeAddUserForm()
   loadData(state)
+  closeEditUserForm()
 }
 
 // 挂在后加载列表数据
@@ -95,6 +98,54 @@ onMounted(()=>{
   loadData(state)
 })
 const {tableData,pageSize,loading,total,searchValue} = toRefs(state);
+
+// 编辑管理员弹出框状态
+const editUserVisible = ref(false)
+// 管理员信息
+const userInfo = ref()
+// 获取管理员信息
+const editUser = async (id:number)=> {
+  const { data } = await getUserApi(id)
+  userInfo.value = data.result
+  editUserVisible.value = true
+}
+
+// 关闭编辑管理员弹出框
+const closeEditUserForm = () => {
+  editUserVisible.value = false
+}
+
+// 删除管理员信息
+const delUser = async (id:number) => {
+  const { data } = await delUserApi(id)
+  if (data.code===200){
+    ElMessage.success('删除成功')
+    await loadData(state)
+  }else {
+    ElMessage.error('删除失败')
+  }
+}
+
+// 定义需要导出的列名对象
+const column = [
+  {name: 'id',label: '用户ID'},
+  {name: 'username',label: '用户名称'},
+  {name: 'phone',label: '手机号'},
+  {name: 'email',label: '邮箱'},
+  {name: 'remarks',label: '备注'}
+]
+
+// 导出excel函数
+const exportExcelAction = () => {
+  exportExcel({
+    column,
+    data:state.tableData,
+    filename: '管理员信息数据',
+    format: 'xlsx',
+    autowidth: false
+  })
+}
+
 </script>
 
 <template>
@@ -207,6 +258,19 @@ const {tableData,pageSize,loading,total,searchValue} = toRefs(state);
       <!--添加管理员组件 end-->
     </el-dialog>
     <!--新增管理员弹出框 end-->
+    <!--编辑管理员弹出框 start-->
+    <el-dialog v-model="editUserVisible" align-center width="42%" destroy-on-close>
+      <template #header>
+        <div class="my-header">
+          <el-icon size="26px"><EditPen/></el-icon>
+          <h1>编辑管理员</h1>
+        </div>
+      </template>
+      <!--编辑管理员组件 start-->
+      <EditUser :userInfo="userInfo" @closeEditUserForm="closeEditUserForm" @success="success"/>
+      <!--编辑管理员组件 end-->
+    </el-dialog>
+    <!--编辑管理员弹出框 end-->
   </el-card>
 </template>
 
