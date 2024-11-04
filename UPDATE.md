@@ -250,49 +250,7 @@ el-tabs标签修改
 
 ##### 
 
-### 管理员列表数据功能实现
-
-#### src/views/system/user/UserList.vue
-
-##### 新增loadData函数
-
-#### src/api/system/user/user.ts
-
-##### 新增user目录
-
-##### 新增user.ts文件
-
-##### 新增api接口获取用户列表数据
-
-### 时间格式化功能实现
-
-#### src/utils/date.ts
-
-##### 新增utils目录
-
-##### 新增data.ts文件
-
-#### src/views/system/user/UserList.vue
-
-##### 导入data.ts
-
-### 刷新和搜索管理员列表数据功能实现
-
-#### src/views/system/user/UserList.vue
-
-##### 新增refresh函数
-
-##### 新增search函数
-
-##### 修改loadData函数查询参数
-
-### 列表数据分页和序号功能实现
-
-#### src/views/system/user/UserList.vue
-
-##### 新增changepage函数
-
-##### 新增Nindex函数
+##### 
 
 ##### 
 
@@ -318,31 +276,73 @@ el-tabs标签修改
 
 设置为中文
 
-### 添加管理员功能
-
-#### 添加管理员页面布局
-
-##### src/views/system/user/components/AddUser.vue
-
-新建components目录
-
-新建AddUser.vue组件
-
-设计布局与样式
-
-新增formUser表单数据对象
-
-新增subLoading按钮状态变量
+#### 管理员列表数据功能实现
 
 ##### src/views/system/user/UserList.vue
 
-导入src/views/system/user/components/AddUser.vue
+新增loadData函数
 
-使用AddUser.vue组件
+##### src/api/system/user/user.ts
 
-设计样式
+新增user目录
 
-新增addUser函数
+新增user.ts文件
+
+新增api接口获取用户列表数据
+
+#### 时间格式化功能实现
+
+##### src/utils/date.ts
+
+新增utils目录
+
+新增data.ts文件
+
+##### src/views/system/user/UserList.vue
+
+导入data.ts
+
+#### 刷新和搜索管理员列表数据功能实现
+
+##### src/views/system/user/UserList.vue
+
+新增refresh函数
+
+新增search函数
+
+修改loadData函数查询参数
+
+#### 列表数据分页和序号功能实现
+
+##### src/views/system/user/UserList.vue
+
+新增changepage函数
+
+新增Nindex函数
+
+### 添加管理员功能
+
+#### src/views/system/user/components/AddUser.vue
+
+##### 新建components目录
+
+##### 新建AddUser.vue组件
+
+##### 设计布局与样式
+
+##### 新增formUser表单数据对象
+
+##### 新增subLoading按钮状态变量
+
+#### src/views/system/user/UserList.vue
+
+##### 导入src/views/system/user/components/AddUser.vue
+
+##### 使用AddUser.vue组件
+
+##### 设计样式
+
+##### 新增addUser函数
 
 #### 添加管理员与取消添加管理员前端实现
 
@@ -487,3 +487,250 @@ el-tabs标签修改
 ##### 定义导出列名的数组
 
 ##### 新增函数exportExcelAction
+
+## 角色模块功能
+
+### 角色管理页面布局
+
+#### 页面头部布局
+
+##### src/views/system/role/RoleList.vue
+
+新建role目录
+
+新建RoleList.vue组件
+
+设计头部布局
+
+修改样式
+
+##### src/api/system/role/role.ts 
+
+新建role目录
+
+新建role.ts组件
+
+#### 页面表格布局
+
+##### src/views/system/role/RoleList.vue
+
+设计页面表格布局
+
+#### 分页布局
+
+##### src/views/system/role/RoleList.vue
+
+设计分页布局
+
+定义state对象
+
+修改分页样式
+
+### 角色列表数据获取功能
+
+#### src/views/system/role/RoleList.vue
+
+##### 新增loadData的函数
+
+#### src/api/system/role/role.ts
+
+##### 新增getRoleListApi函数
+
+#### 刷新和搜索角色列表数据功能
+
+##### src/views/system/role/RoleList.vue
+
+新增refresh函数
+
+新增search函数
+
+修改loadData函数查询参数
+
+#### 处理角色列表数据分页和序号功能实现
+
+##### src/views/system/role/RoleList.vue
+
+修改分页插件
+
+新增changePage函数
+
+新增Nindex函数
+
+### 添加角色功能
+
+#### 添加角色页面布局
+
+##### src/views/system/role/compenents/AddRole.vue
+
+新建components目录
+
+新增AddRole.vue组件
+
+设计布局与样式
+
+定义formRole表单数据对象
+
+定义subLoading按钮状态变量
+
+##### src/views/system/role/RoleList.vue
+
+导入AddRole.vue并使用
+
+编写弹出框样式
+
+新增addRole函数
+
+#### 添加角色前端功能实现
+
+##### src/views/system/role/compenents/AddRole.vue
+
+新增addRole函数
+
+##### src/api/system/role/role.ts
+
+新增addRoleApi函数
+
+#### 取消添加角色表单功能实现
+
+##### src/views/system/role/RoleList.vue
+
+导入添加角色组件
+
+新增closeAddRoleForm函数
+
+定义事件
+
+新增close函数
+
+#### 提交表单后关闭表单并刷新功能实现
+
+##### src/views/system/role/RoleList.vue
+
+使用添加角色组件
+
+新增success的函数
+
+##### src/views/system/role/compenents/AddRole.vue
+
+定义事件
+
+修改addRole的函数
+
+#### 校验添加角色表单功能实现
+
+##### src/views/system/role/compenents/AddRole.vue
+
+定义约束规则对象
+
+定义表单实例对象
+
+修改el-form标签
+
+修改addRole函数
+
+### 更新角色功能
+
+#### 页面布局
+
+##### src/views/system/role/componets/EditRole.vue
+
+新建EditRole.vue组件
+
+设计布局与样式
+
+定义formRole表单数据对象
+
+定义按钮状态subLoading变量
+
+获取父组件RoleList.vue组件传递的roleInfo对象并填充到表单数据formRole对象
+
+##### src/views/system/role/RoleList.vue
+
+导入EditRole.vue并使用
+
+新增editRole函数
+
+##### src/api/role/role.ts
+
+新增getRoleApi函数
+
+#### 功能实现
+
+##### src/views/system/role/componets/EditRole.vue
+
+新增editRole函数
+
+##### src/api/system/role/role.ts
+
+新增editRoleApi函数
+
+#### 取消更新角色表单功能实现
+
+##### src/views/system/role/RoleList.vue
+
+编辑角色组件
+
+新增closeEditRoleForm函数
+
+##### src/views/system/role/componets/EditRole.vue
+
+定义事件
+
+新增close函数
+
+#### 提交表单后关闭表单并刷新功能实现
+
+##### src/views/system/role/RoleList.vue
+
+编辑角色组件
+
+修改success函数
+
+##### src/views/system/role/componets/EditRole.vue
+
+定义事件
+
+修改editRole函数
+
+#### 校验添加角色表单功能实现
+
+##### src/views/system/role/componets/EditRole.vue
+
+定义约束规则对象
+
+定义表单实例对象
+
+修改el-form标签
+
+修改editRole函数
+
+### 删除角色功能
+
+#### src/views/system/role/RoleList.vue
+
+##### 新增delRole函数
+
+#### src/api/system/role/role.ts
+
+##### 新增delRoleApi函数
+
+### 导出角色功能
+
+#### src/views/system/role/RoleList.vue
+
+##### 定义导出列名数组
+
+##### 定义导出函数exportExcelAction
+
+### 修改角色管理员功能
+
+#### src/views/system/role/RoleList.vue
+
+##### 修改组件代码
+
+##### 新增handleChangeAdminState函数
+
+#### src/api/system/role/role.ts
+
+##### 新增updateIsAdminByIdApi函数
+
