@@ -1,38 +1,47 @@
 <template>
-<el-form ref="ruleFormRef" :rules="rules" :model="formUser" label-width="80px">
-  <el-row>
-    <el-col :span="12">
-      <el-form-item label="用户名" prop="username">
-        <el-input v-model="formUser.username" placeholder="请输入用户名"/>
-      </el-form-item>
-    </el-col>
+  <el-form ref="ruleFormRef" :rules="rules" :model="formUser" label-width="80px">
+    <el-row>
+      <el-col :span="12">
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="formUser.username" placeholder="请输入用户名"/>
+        </el-form-item>
+      </el-col>
 
-    <el-col :span="12">
-      <el-form-item label="登录密码" prop="password">
-        <el-input v-model="formUser.password" placeholder="请输入登录密码"/>
-      </el-form-item>
-    </el-col>
+      <el-col :span="12">
+        <el-form-item label="登录密码" prop="password">
+          <el-input v-model="formUser.password" placeholder="请输入登录密码"/>
+        </el-form-item>
+      </el-col>
 
-    <el-col :span="12">
-      <el-form-item label="手机号" prop="phone">
-        <el-input v-model="formUser.phone" placeholder="请输入手机号"/>
-      </el-form-item>
-    </el-col>
+      <el-col :span="8">
+        <el-form-item label="手机号" prop="phone">
+          <el-input v-model="formUser.phone" placeholder="请输入手机号"/>
+        </el-form-item>
+      </el-col>
 
-    <el-col :span="12">
-      <el-form-item label="邮箱" prop="email">
-        <el-input v-model="formUser.email" placeholder="请输入邮箱"/>
-      </el-form-item>
-    </el-col>
+      <el-col :span="8">
+        <el-form-item label="邮箱" prop="email">
+          <el-input v-model="formUser.email" placeholder="请输入邮箱"/>
+        </el-form-item>
+      </el-col>
 
-    <el-col :span="24">
-      <el-form-item label="备注">
-        <el-input :rows="2" type="textarea" v-model="formUser.remarks" placeholder="请输入备注"/>
-      </el-form-item>
-    </el-col>
+      <el-col :span="8">
+        <el-form-item label="分配角色" prop="roleId">
+          <el-select v-model="formUser.roleId" style="width: 100%;" placeholder="请选择角色">
+            <el-option v-for="item in roleOptions" :key="item.id" :label="item.name"
+                       :value="item.id"/>
+          </el-select>
+        </el-form-item>
+      </el-col>
 
-  </el-row>
-</el-form>
+      <el-col :span="24">
+        <el-form-item label="备注">
+          <el-input :rows="2" type="textarea" v-model="formUser.remarks" placeholder="请输入备注"/>
+        </el-form-item>
+      </el-col>
+
+    </el-row>
+  </el-form>
 
   <div class="dialog-button-wrap">
     <el-button @click="close">取消</el-button>
@@ -42,20 +51,22 @@
 </template>
 
 <script setup lang="ts">
-import {ref,reactive} from 'vue'
-import {addUserApi} from "@/api/system/user/user";
+import {ref,reactive,onMounted} from 'vue'
+import {addUserApi, getAllRoleListApi} from "@/api/system/user/user";
 import { ElMessage,FormInstance,FormRules } from 'element-plus'
 // 定义事件
 const emit = defineEmits(['closeAddUserForm','success'])
 // 按钮状态
 const subLoading =ref(false)
+
 // 表单数据对象
 const formUser = reactive({
   username: '',
-  password: '123456',
+  password: 'admin',
   phone: '',
   email: '',
-  remarks: ''
+  remarks: '',
+  roleId: '',
 })
 
 // 表单实例对象
@@ -66,6 +77,7 @@ const rules = reactive<FormRules>({
   password: [{required: true,message: '登录密码不能为空',trigger: 'blur'}],
   phone: [{required: true,message: '手机号不能为空',trigger: 'blur'}],
   email: [{required: true,message: '邮箱不能为空',trigger: 'blur'}],
+  roleId: [{required: true,message: '管理员角色不能为空',trigger: 'blur'}],
 })
 
 // 新增管理员信息
@@ -92,6 +104,20 @@ const addUser = async (formEl:FormInstance | undefined)=> {
 const close = ()=> {
   emit('closeAddUserForm')
 }
+
+// 定义角色下拉选择项的数据
+const roleOptions = ref<object[]>([])
+
+// 获取所有角色列表数据
+const getAllRoleList = async () => {
+  const {data} = await getAllRoleListApi()
+  roleOptions.value = data.result
+}
+
+onMounted(()=> {
+  getAllRoleList()
+})
+
 </script>
 
 <style scoped>

@@ -3,7 +3,7 @@ import {ref,reactive,toRefs,onMounted} from "vue";
 import {getUserListApi, getUserApi, editUserApi, delUserApi} from "@/api/system/user/user.ts";
 import {formatTime} from "@/utils/date.ts";
 import {ElMessage} from "element-plus";
-import AddUser from "@/api/system/user/components/AddUser.vue";
+import AddUser from "@/views/system/user/components/AddUser.vue";
 import EditUser from "@/views/system/user/components/EditUser.vue";
 import {exportExcel} from "@/utils/exportExcel.ts";
 

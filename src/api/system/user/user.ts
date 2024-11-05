@@ -42,3 +42,11 @@ export function delUserApi(id:number) {
         method: 'delete'
     })
 }
+
+// 获取所有角色列表数据
+export function getAllRoleListApi() {
+    return request({
+        url: 'role/all',
+        method: 'get'
+    })
+}

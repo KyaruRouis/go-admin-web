@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import { ref,reactive } from 'vue'
+import { ref,reactive,onMounted } from 'vue'
 import { ElMessage,FormInstance,FormRules } from 'element-plus'
-import {editUserApi} from "@/api/system/user/user.ts";
+import {editUserApi, getAllRoleListApi} from "@/api/system/user/user.ts";
 // 按钮状态
 const subLoading = ref(false)
+
 // 表单数据对象
 const formUser = reactive({
-  id: '',
+  id: 0,
   username: '',
   password: '',
   phone: '',
   email: '',
-  remarks: ''
+  remarks: '',
+  roleId: '',
+  roleId2:''
 })
+
 // 获取父组件UserList.vue传过来的userInfo对象
 const props = defineProps(['userInfo'])
 const userInfo = props.userInfo
@@ -53,14 +57,37 @@ const close = () => {
 
 // 定义表单实例对象
 const ruleFormRef = ref<FormInstance>()
+
 // 定义表单约束规则对象
 const rules = reactive<FormRules>({
   username: [{required: true,message: '用户名不能为空',trigger: 'blur'}],
   password: [{required: true,message: '登录密码不能为空',trigger: 'blur'}],
   phone: [{required: true,message: '手机号不能为空',trigger: 'blur'}],
   email: [{required: true,message: '邮箱不能为空',trigger: 'blur'}],
+  roleId: [
+    { required: true, message: '管理角色不能为空', trigger: 'blur' },
+    { validator: (rule, value, callback) => {
+        if (Number.isInteger(value)) {
+          callback(new Error(`角色ID不能为${value}`));
+        } else {
+          callback();
+        }
+      }, trigger: 'blur'
+    }
+  ],
 })
 
+// 定义角色下拉选择项数据
+const roleOptions = ref<object[]>([])
+// 获取所有角色的列表
+const getAllRoleList = async () => {
+  const { data } = await getAllRoleListApi()
+  roleOptions.value = data.result
+}
+
+onMounted(()=> {
+  getAllRoleList()
+})
 
 </script>
 
@@ -79,15 +106,23 @@ const rules = reactive<FormRules>({
         </el-form-item>
       </el-col>
 
-      <el-col :span="12">
+      <el-col :span="8">
         <el-form-item label="手机号" prop="phone">
           <el-input v-model="formUser.phone" placeholder="请输入手机号"/>
         </el-form-item>
       </el-col>
 
-      <el-col :span="12">
+      <el-col :span="8">
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="formUser.email" placeholder="请输入邮箱"/>
+        </el-form-item>
+      </el-col>
+
+      <el-col :span="8">
+        <el-form-item label="分配角色" prop="roleId">
+          <el-select v-model="formUser.roleId" style="width: 100%;" placeholder="请选择角色">
+            <el-option v-for="item in roleOptions" :key="item.id" :label="item.name" :value="item.id"/>
+          </el-select>
         </el-form-item>
       </el-col>
 

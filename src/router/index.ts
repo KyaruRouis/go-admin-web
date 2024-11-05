@@ -104,7 +104,7 @@ router.beforeEach(async (to, from, next) => {
     //菜单信息
     const menuStore = useMenuStore()
     // 如果routers为空，获取菜单数据
-    if (menuStore.routers.length == 0) {
+    if (menuStore.routers==undefined || menuStore.routers.length == 0) {
         await menuStore.generateRouter()
     }
     // 生成动态路由start

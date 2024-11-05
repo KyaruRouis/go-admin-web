@@ -2,14 +2,36 @@
 import {ref, reactive} from 'vue'
 import { ElMessage } from 'element-plus'
 import {addRoleApi} from "@/api/system/role/role.ts";
+import type {ElTree} from 'element-plus'
+import {getMenuListApi} from "@/api/system/menu/menu.ts";
+
+// 树形菜单实例对象
+const treeRef = ref<InstanceType<typeof ElTree>>()
+
+// 菜单数据对象
+const menus = ref()
+const treeProps = {
+  children: "sub_menus",
+  label: "name"
+}
+
+// 获取菜单数据
+const menuList = async () => {
+  const {data} = await getMenuListApi()
+  menus.value = data.result
+}
+menuList()
+
 // 按钮状态
 const subLoading = ref(false)
+
 // 表单数据对象
 const formRole = reactive({
   name: '',
   sort: 0,
   isAdmin: 0,
-  remarks: ''
+  remarks: '',
+  menuId: []
 })
 
 // 新增角色
@@ -18,6 +40,7 @@ const addRole = async (formEl: FormInstance | undefined) => {
   await formEl.validate(async (valid)=> {
     subLoading.value = true
     if(valid){
+      formRole.menuId = treeRef.value!.getCheckedKeys(false)
       const { data } = await addRoleApi(formRole)
       if(data.code === 200){
         ElMessage.success(data.msg)
@@ -73,6 +96,23 @@ const rules = reactive<FormRules>({
         <el-form-item label="超级管理员" prop="isAdmin">
           <el-switch v-model="formRole.isAdmin" :active-value="1" :inactive-value="0"
                      style="--el-switch-on-color: #e99d53;"/>
+        </el-form-item>
+      </el-col>
+
+      <el-col :span="24">
+        <el-form-item label="分配菜单">
+          <el-tree
+              ref="treeRef"
+              :data="menus"
+              :props="treeProps"
+              mutiple
+              :render-after-expand="false"
+              node-key="id"
+              show-checkbox
+              check-strictly
+              :default-checked-keys="formRole.menuId"
+              check-on-click-node
+              style="display: block;width: 100%;"/>
         </el-form-item>
       </el-col>
 

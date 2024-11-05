@@ -734,7 +734,7 @@ el-tabs标签修改
 
 ##### 新增updateIsAdminByIdApi函数
 
-## 菜单模块功能实现 
+## 菜单模块功能
 
 ### 菜单管理页面布局
 
@@ -750,7 +750,7 @@ el-tabs标签修改
 
 设计页面表格布局
 
-### 获取菜单列表数据功能实现
+### 获取菜单列表数据功能
 
 #### src/views/system/menu/MenuList.vue
 
@@ -762,13 +762,13 @@ el-tabs标签修改
 
 ##### 修改getMenuListApi函数
 
-### 刷新菜单列表数据功能实现
+### 刷新菜单列表数据功能
 
 #### src/views/system/menu/MenuList.vue
 
 ##### 新增refresh函数
 
-### 添加菜单页面功能实现
+### 添加菜单页面功能
 
 #### src/views/system/menu/components/AddMenu.vue
 
@@ -798,7 +798,7 @@ el-tabs标签修改
 
 新增addMenuApi函数
 
-### 取消新增菜单表单功能实现
+### 取消新增菜单表单功能
 
 #### src/views/system/menu/MenuList.vue
 
@@ -810,7 +810,7 @@ el-tabs标签修改
 
 ##### 新增close的函数
 
-### 提交表单后关闭表单并刷新表格功能实现
+### 提交表单后关闭表单并刷新表格功能
 
 #### src/views/system/menu/MenuList.vue
 
@@ -822,7 +822,7 @@ el-tabs标签修改
 
 ##### 修改addMenu函数
 
-### 校验添加菜单表单功能实现
+### 校验添加菜单表单功能
 
 #### src/views/system/menu/components/AddMenu.vue
 
@@ -834,7 +834,7 @@ el-tabs标签修改
 
 ##### 修改addMenu函数
 
-### 选择图标页面布局功能实现
+### 选择图标页面布局功能
 
 #### src/views/system/menu/components/Icon.vue
 
@@ -854,7 +854,7 @@ el-tabs标签修改
 
 定义时间函数
 
-### 选择图标前端功能实现
+### 选择图标前端功能
 
 #### src/views/system/menu/components/Icon.vue
 
@@ -866,7 +866,7 @@ el-tabs标签修改
 
 ##### 编写分页事件
 
-### 添加子菜单功能实现
+### 添加子菜单功能
 
 #### src/views/system/menu/MenuList.vue
 
@@ -880,7 +880,7 @@ el-tabs标签修改
 
 ##### 修改布局代码
 
-### 更新菜单功能实现
+### 更新菜单功能
 
 #### 菜单页面的布局
 
@@ -902,7 +902,7 @@ menuInfo填充到表格数据对象formMenu
 
 新增editMenu函数
 
-#### 更新菜单信息前端功能实现
+#### 更新菜单信息前端功能
 
 ##### src/views/system/menu/components/EditMenu.vue
 
@@ -916,7 +916,7 @@ menuInfo填充到表格数据对象formMenu
 
 新增editMenuApi函数
 
-#### 取消更新菜单信息表单功能实现
+#### 取消更新菜单信息表单功能
 
 ##### src/views/system/menu/MenuList.vue
 
@@ -928,7 +928,7 @@ menuInfo填充到表格数据对象formMenu
 
 新增close函数
 
-#### 提交表单后关闭更新菜单信息表单和刷新表格功能实现
+#### 提交表单后关闭更新菜单信息表单和刷新表格功能
 
 ##### src/views/system/menu/MenuList.vue
 
@@ -942,7 +942,7 @@ menuInfo填充到表格数据对象formMenu
 
 编写计算属性list
 
-#### 校验更新菜单信息表单功能实现
+#### 校验更新菜单信息表单功能
 
 ##### src/views/system/menu/components/EditMenu.vue
 
@@ -954,7 +954,7 @@ menuInfo填充到表格数据对象formMenu
 
 修改editMenu函数
 
-### 删除菜单信息功能实现
+### 删除菜单信息功能
 
 #### src/views/system/menu/MenuList.vue
 
@@ -964,9 +964,71 @@ menuInfo填充到表格数据对象formMenu
 
 ##### 新增delMenuApi函数
 
+## 角色和菜单授权功能
 
+### 添加用户时绑定角色功能
 
+#### src/views/system/user/components/AddUser.vue
 
+##### 修改布局
+
+##### 修改表单数据对象
+
+##### 修改约束规则
+
+##### 新增getAllRoleList函数
+
+#### src/api/system/user/user.ts
+
+##### 新增getAllRoleListApi函数
+
+### 编辑用户时绑定角色
+
+#### src/views/system/user/components/EditUser.vue
+
+##### 修改布局
+
+##### 修改表单数据对象formUser
+
+##### 修改约束规则对象rules
+
+##### 新增getAllRoleList函数
+
+### 添加角色时绑定菜单功能
+
+#### src/views/system/role/components/AddRole.vue
+
+##### 修改布局
+
+##### 修改表单数据对象
+
+##### 定义树形菜单实例对象
+
+##### 新增menuList的函数
+
+##### 定义菜单数据对象
+
+##### 修改addRole函数
+
+### 编辑角色时分配菜单功能
+
+#### src/views/system/role/components/EditRole.vue
+
+##### 修改布局代码
+
+##### 修改表单数据对象
+
+##### 定义树形菜单实例对象
+
+##### 新增menuList函数
+
+##### 修改editRole函数
+
+### 根据登录用户的角色获取相应菜单功能
+
+#### src/api/request.ts
+
+##### 修改文件
 
 
 
