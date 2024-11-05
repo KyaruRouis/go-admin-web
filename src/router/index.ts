@@ -7,19 +7,48 @@ import {useUserStore} from "../store/modules/user.ts";
 // 定义路由和组件的映射关系
 const modules = import.meta.glob("../views/**/**.vue")
 
-// 2、定义一些路由地址，每一个都需要映射到一个组件
+// // 2、定义一些路由地址，每一个都需要映射到一个组件
+// const routes = [{
+//         path: '/',
+//         redirect: '/login',
+//         name: 'Login',
+//         meta: { title: '后台管理系统-登录' },
+//         component: ()=> import('../views/system/login/Login.vue'),
+//     },
+//     {
+//         path: '/login',
+//         name: 'Login',
+//         meta: { title: '后台管理系统-登录' },
+//         component: ()=> import('../views/system/login/Login.vue'),
+//     },
+//     {
+//         path: '/index',
+//         name: 'Index',
+//         component: ()=> import('@/views/system/layout/Index.vue'),
+//         redirect: '/home',
+//         children: [
+//             {
+//                 path: '/home',
+//                 name: 'Home',
+//                 meta:{title:'首页',icon:'House'},
+//                 component: ()=> import('@/views/system/home/Index.vue'),
+//             }
+//         ]
+//     }
+// ]
+
+// 2、定义一些路由地址，每个都需要映射到一个组件
 const routes = [{
-        path: '/',
-        redirect: '/login',
-        name: 'Login',
-        meta: { title: '后台管理系统-登录' },
-        component: ()=> import('../views/system/login/Login.vue'),
-    },
+    path: '/',
+    redirect: '/login',
+    meta: { title: '后台管理系统-登录'},
+    component: ()=> import('../views/system/login/Login.vue')
+},
     {
         path: '/login',
         name: 'Login',
-        meta: { title: '后台管理系统-登录' },
-        component: ()=> import('../views/system/login/Login.vue'),
+        meta: { title: '后台管理系统-登录'},
+        component: ()=> import('../views/system/login/Login.vue')
     },
     {
         path: '/index',
@@ -30,10 +59,11 @@ const routes = [{
             {
                 path: '/home',
                 name: 'Home',
-                meta:{title:'首页',icon:'House'},
-                component: ()=> import('@/views/system/home/Index.vue'),
+                meta: {title: '首页',icon:'House'},
+                component: ()=> import('@/views/system/home/Index.vue')
             }
         ]
+
     }
 ]
 
@@ -140,7 +170,7 @@ router.afterEach(async (to, from, next) => {
 // 路由跳转失败
 router.onError(error => {
     Nprogress.done()
-    console.warn(data,"路由错误",error.message)
+    console.warn("路由错误",error.message)
 })
 
 export default router

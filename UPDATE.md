@@ -940,6 +940,8 @@ menuInfo填充到表格数据对象formMenu
 
 修改editMenu函数
 
+编写计算属性list
+
 #### 校验更新菜单信息表单功能实现
 
 ##### src/views/system/menu/components/EditMenu.vue
