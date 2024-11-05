@@ -734,3 +734,239 @@ el-tabs标签修改
 
 ##### 新增updateIsAdminByIdApi函数
 
+## 菜单模块功能实现 
+
+### 菜单管理页面布局
+
+#### 页面头部布局 
+
+##### src/views/system/menu/MenuList.vue
+
+新建menu目录
+
+新建MenuList.vue组件
+
+设计头部布局和样式
+
+设计页面表格布局
+
+### 获取菜单列表数据功能实现
+
+#### src/views/system/menu/MenuList.vue
+
+##### 定义一个state对象
+
+##### 新增loadData函数
+
+#### src/api/system/menu/menu.ts
+
+##### 修改getMenuListApi函数
+
+### 刷新菜单列表数据功能实现
+
+#### src/views/system/menu/MenuList.vue
+
+##### 新增refresh函数
+
+### 添加菜单页面功能实现
+
+#### src/views/system/menu/components/AddMenu.vue
+
+##### 新建components目录
+
+##### 新建AddMenu.vue组件
+
+##### 设计布局与样式
+
+##### 定义formMenu表单数据对象
+
+##### 定义subLoading按钮状态变量
+
+#### src/views/system/menu/MenuList.vue
+
+##### 导入AddMenu.vue组件
+
+##### 新增addMenu函数
+
+#### 添加顶级菜单前端功能实现
+
+##### src/views/system/menu/components/AddMenu.vue
+
+新增addMenu的函数
+
+##### src/api/system/menu/menu.ts
+
+新增addMenuApi函数
+
+### 取消新增菜单表单功能实现
+
+#### src/views/system/menu/MenuList.vue
+
+##### 新增closeAddMenuForm函数
+
+#### src/views/system/menu/components/AddMenu.vue
+
+##### 定义事件
+
+##### 新增close的函数
+
+### 提交表单后关闭表单并刷新表格功能实现
+
+#### src/views/system/menu/MenuList.vue
+
+##### 新增success函数
+
+##### 定义事件
+
+#### src/views/system/menu/components/AddMenu.vue
+
+##### 修改addMenu函数
+
+### 校验添加菜单表单功能实现
+
+#### src/views/system/menu/components/AddMenu.vue
+
+##### 定义约束规则对象
+
+##### 定义表单实例对象，代码如下所示：
+
+##### 修改el-form标签
+
+##### 修改addMenu函数
+
+### 选择图标页面布局功能实现
+
+#### src/views/system/menu/components/Icon.vue
+
+##### 新建Icon.vue组件
+
+##### 设计布局
+
+##### 设计样式
+
+##### 定义图标数组
+
+#### src/views/system/menu/components/AddMenu.vue
+
+##### 导入Icon.vue组件并使用
+
+定义图标弹出框状态
+
+定义时间函数
+
+### 选择图标前端功能实现
+
+#### src/views/system/menu/components/Icon.vue
+
+##### 编写一个计算属性list
+
+##### 定义事件
+
+##### 编写选择图标函数
+
+##### 编写分页事件
+
+### 添加子菜单功能实现
+
+#### src/views/system/menu/MenuList.vue
+
+##### 新增addSubMenu
+
+#### src/views/system/menu/components/AddMenu.vue
+
+##### 接收参数
+
+##### 修改表单数据对象
+
+##### 修改布局代码
+
+### 更新菜单功能实现
+
+#### 菜单页面的布局
+
+##### src/views/system/menu/components/EditMenu.vue
+
+设计布局和样式
+
+定义formMenu表单数据对象
+
+定义按钮状态subLoading变量
+
+获取父组件MenuList.vue的menuInfo对象
+
+menuInfo填充到表格数据对象formMenu
+
+##### src/views/system/menu/MenuList.vue
+
+导入EditMenu.vue并使用
+
+新增editMenu函数
+
+#### 更新菜单信息前端功能实现
+
+##### src/views/system/menu/components/EditMenu.vue
+
+新增editMenu函数
+
+新增onChangeIcon函数
+
+导入Icon.vue组件
+
+##### src/api/system/menu/menu.ts
+
+新增editMenuApi函数
+
+#### 取消更新菜单信息表单功能实现
+
+##### src/views/system/menu/MenuList.vue
+
+新增closeEditMenuForm函数
+
+##### src/views/system/menu/components/EditMenu.vue
+
+定义事件
+
+新增close函数
+
+#### 提交表单后关闭更新菜单信息表单和刷新表格功能实现
+
+##### src/views/system/menu/MenuList.vue
+
+修改success函数
+
+##### src/views/system/menu/components/EditMenu.vue
+
+定义事件
+
+修改editMenu函数
+
+#### 校验更新菜单信息表单功能实现
+
+##### src/views/system/menu/components/EditMenu.vue
+
+定义约束规则对象
+
+定义表单实例对象
+
+修改el-form标签
+
+修改editMenu函数
+
+### 删除菜单信息功能实现
+
+#### src/views/system/menu/MenuList.vue
+
+##### 新增delMenu函数
+
+#### src/api/system/menu/menu.ts
+
+##### 新增delMenuApi函数
+
+
+
+
+
+
+
+
+
