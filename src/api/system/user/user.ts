@@ -50,3 +50,55 @@ export function getAllRoleListApi() {
         method: 'get'
     })
 }
+
+// 更新个人信息
+export function updateInfoApi(data:object) {
+    return request({
+        url: 'user/updateInfo',
+        method: 'put',
+        data
+    })
+}
+
+// 发送邮箱验证码
+export function sendEmailApi(email:string) {
+    return request({
+        url: 'user/sendEmail',
+        method: 'get',
+        params: {
+            email
+        }
+    })
+}
+
+// 校验用户输入验证码是否正确
+export function verifyCodeApi(code:string) {
+    return request({
+        url:'user/verifyCode',
+        method: 'get',
+        params: {
+            code
+        }
+    })
+}
+
+// 更改绑定邮箱
+export function updateEmailApi(email:string,code:string) {
+    return request({
+        url: 'user/updateEmail',
+        method: 'put',
+        params: {
+            email,
+            code
+        }
+    })
+}
+
+// 更改个人密码
+export function updatePwdApi(data:object) {
+    return request({
+        url: 'user/updatePwd',
+        method: 'put',
+        data
+    })
+}

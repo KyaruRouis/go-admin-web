@@ -14,7 +14,6 @@ const formUser = reactive({
   email: '',
   remarks: '',
   roleId: '',
-  roleId2:''
 })
 
 // 获取父组件UserList.vue传过来的userInfo对象

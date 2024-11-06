@@ -3,6 +3,13 @@ import {SwitchButton} from "@element-plus/icons-vue"
 import CollapseIcon from "@/views/system/layout/header/CollapseIcon.vue"
 import Hamburger from "@/views/system/layout/header/Hamburger.vue";
 import TabsView from "@/views/system/layout/tags/Index.vue"
+import {useUserStore} from "@/store/modules/user";
+import {calculateDays, formatTime} from "@/utils/date.ts";
+
+// 登录用户信息
+const { userInfo } = useUserStore()
+// 服务器路径
+const url = import.meta.env.VITE_APP_BASE_API
 
 // 退出系统
 const exit = ()=> {
@@ -27,25 +34,43 @@ const exit = ()=> {
       <!--用户头像 start-->
       <template #reference>
         <el-link :underline="false">
-          <img src="@/assets/default_avatar.png" style="width:40px;border-radius: 50px"/>
-          <span>Admin</span>
+          <img v-if="userInfo.avatar" :src="url+'uploadFile/'+userInfo.avatar" style="width: 40px;border-radius: 50px">
+          <img v-else src="@/assets/default_avatar.png" style="width: 40px;border-radius: 50px">
+          <span>{{userInfo.userName}}</span>
         </el-link>
       </template>
       <!--用户头像 end-->
       <!--用户信息 start-->
       <template #default>
-        <div style="display: flex;gap: 16px;flex-direction: column">
+        <div style="display: flex;gap:16px;flex-direction: column">
           <div class="info-card">
             <!--用户头像-->
-            <img src="@/assets/default_avatar.png" style="width:40px;border-radius: 50px"/>
-            <p>用户名：Admin</p>
-            <p>Email:test@testmail.com</p>
-            <p>注册时间：2024-10-28</p>
+            <img v-if="userInfo.avatar" :src="url+'uploadFile/'+userInfo.avatar">
+            <img v-else src="@/assets/default_avatar.png">
+            <p>用户名：{{userInfo.userName}}</p>
+            <p>Email:{{userInfo.email}}</p>
+            <p>注册时间：{{formatTime(userInfo.CreatedAt,'yyyy-MM-dd')}}</p>
           </div>
-          <div class="info-card-desc" style="margin: 0">
+          <div class="info-card-desc" style="margin: 0;">
+
+            <!--性别 start-->
             <div style="float: left;width: 75px;padding: 10px;border-right: 1px;text-align: center">
-              <p>待定内容</p>
+              <p>性别</p>
+              <p style="font-size: 25px;font-weight: 600;">{{userInfo.sex}}
+                <span style="font-size: 10px;font-weight: 100;margin-left: 5px;">孩</span>
+              </p>
             </div>
+            <!--性别 end-->
+
+            <!--性别 start-->
+            <div style="float: left;width: 75px;padding: 10px;border-right: 1px;text-align: center">
+              <p>注册</p>
+              <p style="font-size: 25px;font-weight: 600;">{{calculateDays(userInfo.CreatedAt)}}
+                <span style="font-size: 10px;font-weight: 100;margin-left: 5px;">天</span>
+              </p>
+            </div>
+            <!--性别 end-->
+
           </div>
         </div>
       </template>

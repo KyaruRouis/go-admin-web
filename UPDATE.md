@@ -248,12 +248,6 @@ el-tabs标签修改
 
 ##### 新增判断登录状态函数
 
-##### 
-
-##### 
-
-##### 
-
 ## 管理员功能模块
 
 ### 管理员列表数据获取功能
@@ -1029,6 +1023,166 @@ menuInfo填充到表格数据对象formMenu
 #### src/api/request.ts
 
 ##### 修改文件
+
+## 个人信息设置功能实现
+
+### 基础设置
+
+#### 个人设置组件页面
+
+##### src/views/system/user/components/PersonalSettings.vue
+
+新建PersonalSettings.vue组件
+
+设计布局
+
+定义基础信息对象
+
+设计样式
+
+#### 上传头像功能
+
+##### src/views/system/user/components/PersonalSettings.vue
+
+定义图标上传到服务器的路径变量
+
+定义服务器路径对象
+
+新增函数handleAvatarSuccess
+
+修改el-upload标签
+
+#### 设置TopBar.vue头像
+
+##### 修改用户头像布局
+
+##### 定义服务路径url
+
+##### 获取登录用户信息
+
+#### 设置基础信息功能
+
+##### src/views/system/user/components/PersonalSettings.vue
+
+导入FormRules和FormInstance对象
+
+定义按钮状态loading
+
+定义basicRules对象
+
+新增函数onBasicSubmit
+
+绑定提交按钮
+
+获取登录用户信息并填充数据
+
+##### src/api/system/user/user.ts
+
+新增updateInfoApi函数
+
+#### 修改TopBar.vue个人信息
+
+##### src/views/system/layout/header/TopBar.vue
+
+修改布局
+
+##### utils/date.ts
+
+新增calculateDays函数
+
+### 绑定邮箱功能
+
+#### 绑定邮箱页面布局
+
+##### src/views/system/user/components/BindEmail.vue
+
+新建BindEmail.vue组件
+
+##### src/views/system/user/components/PersonalSettings.vue
+
+#### 获取邮箱验证码功能
+
+##### src/views/system/user/components/BindEmail.vue
+
+定义state对象
+
+编写获取邮箱的计算属性
+
+新增函数getCode
+
+##### src/api/system/user/user.ts
+
+新增sendEmailApi函数
+
+#### 校验旧邮箱验证码功能
+
+##### src/views/system/user/components/BindEmail.vue
+
+新增ConfirmCode函数
+
+##### src/api/system/user/user.ts
+
+新增verifyCodeApi函数
+
+#### 更换新邮箱功能
+
+##### src/views/system/user/components/BindEmail.vue
+
+新增toBindSubmit函数
+
+##### src/api/system/user/user.ts
+
+新增updateEmailApi函数
+
+### 更改个人密码功能
+
+#### src/views/system/user/components/UpdatePwd.vue
+
+##### 新建UpdatePwd.vue组件
+
+##### 设计布局
+
+##### 定义表单数据对象modifyPwd
+
+##### 编写一个校验表单规则对象modifyRules
+
+##### 定义表单实例对象
+
+##### 定义提交表单按钮状态subLoading
+
+##### 新增函数modifySubmit
+
+#### src/views/system/user/components/PersonalSettings.vue
+
+##### 导入并使用UpdatePwd.vue
+
+#### src/api/system/user/usert.ts
+
+##### 新增updatePwdApi函数
+
+### 个人详情信息功能
+
+#### src/views/system/user/components/UserInfo.vue
+
+##### 新建UserInfo.vue组件
+
+设计布局
+
+#### src/views/system/user/components/PersonalSettings.vue
+
+##### 导入UserInfo.vue组件并使用
+
+##### 定义服务器路径变量url
+
+##### 获取登录用户信息
+
+##### 设计样式
+
+
+
+
+
+
 
 
 

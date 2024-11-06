@@ -8,8 +8,9 @@ export const useUserStore = defineStore({
             // 登录用户信息
             userInfo: {
                 avatar: '',
-                nickname: '',
-                sex: ''
+                userName: '',
+                sex: '',
+                roleId: '',
             },
             // 角色
             roles: []
@@ -29,7 +30,7 @@ export const useUserStore = defineStore({
         setUserPartInfo(userInfo:any){
             this.userInfo.avatar = userInfo.avatar
             this.userInfo.sex = userInfo.sex
-            this.userInfo.nickname = userInfo.nickname
+            this.userInfo.userName = userInfo.userName
         }
     },
     persist: true

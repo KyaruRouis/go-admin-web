@@ -7,6 +7,9 @@ import AddUser from "@/views/system/user/components/AddUser.vue";
 import EditUser from "@/views/system/user/components/EditUser.vue";
 import {exportExcel} from "@/utils/exportExcel.ts";
 
+// 服务器路径
+const url = import.meta.env.VITE_APP_BASE_API
+
 const state = reactive({
   // 搜索关键字
   searchValue: "",
