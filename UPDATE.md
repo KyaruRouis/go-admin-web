@@ -186,67 +186,67 @@ el-tabs标签修改
 
 #### src/views/system/login/Login.vue
 
-##### system目录下新建login目录
+system目录下新建login目录
 
-##### Login.vue组件迁移至login目录
+Login.vue组件迁移至login目录
 
-##### Login布局设计
+Login布局设计
 
 ### 登录表单组件布局
 
 #### src/views/system/login/components/LoginForm.vue
 
-##### login目录下新建components目录
+login目录下新建components目录
 
-##### LoginForm布局设计，相关依赖导入
+LoginForm布局设计，相关依赖导入
 
-##### 定义表单规则，定义表单数据对象
+定义表单规则，定义表单数据对象
 
-##### 新增密码显示与隐藏函数
+新增密码显示与隐藏函数
 
 ### 登录样式设计
 
 #### src/views/system/login/Login.vue
 
-##### 导入LoginForm.vue并使用组件
+导入LoginForm.vue并使用组件
 
-##### 编写样式
+编写样式
 
 #### src/views/system/login/components/LoginForm.vue
 
-##### 编写样式
+编写样式
 
 #### src/style.css
 
-##### 修改样式
+修改样式
 
 ### 登录功能实现
 
 #### src/store/modules/user.ts
 
-##### 设置登录信息
+设置登录信息
 
 #### src/api/system/login/login.ts
 
-##### 实现登录接口
+实现登录接口
 
 #### src/views/system/login/components/LoginForm.vue
 
-##### 新增提交表单函数submitForm
+新增提交表单函数submitForm
 
 ### 退出功能实现
 
 #### src/views/system/layout/header/TopBar.vue
 
-##### 新增退出系统函数
+新增退出系统函数
 
 #### router/index/ts
 
-##### 设置白名单功能，未登录也可访问对应地址
+设置白名单功能，未登录也可访问对应地址
 
-##### 新增路由地址
+新增路由地址
 
-##### 新增判断登录状态函数
+新增判断登录状态函数
 
 ## 管理员功能模块
 
@@ -318,25 +318,25 @@ el-tabs标签修改
 
 #### src/views/system/user/components/AddUser.vue
 
-##### 新建components目录
+新建components目录
 
-##### 新建AddUser.vue组件
+新建AddUser.vue组件
 
 ##### 设计布局与样式
 
-##### 新增formUser表单数据对象
+新增formUser表单数据对象
 
-##### 新增subLoading按钮状态变量
+新增subLoading按钮状态变量
 
 #### src/views/system/user/UserList.vue
 
-##### 导入src/views/system/user/components/AddUser.vue
+导入src/views/system/user/components/AddUser.vue
 
-##### 使用AddUser.vue组件
+使用AddUser.vue组件
 
-##### 设计样式
+设计样式
 
-##### 新增addUser函数
+新增addUser函数
 
 #### 添加管理员与取消添加管理员前端实现
 
@@ -464,23 +464,23 @@ el-tabs标签修改
 
 #### src/views/system/user/UserList.vue
 
-##### 新增delUser函数
+新增delUser函数
 
 #### src/api/system/user/usert.ts
 
-##### 新增delUserApi函数
+新增delUserApi函数
 
 ### 导出管理员功能
 
 #### src/utils/exportExcel.ts
 
-##### 新建导出excel工具文件exportExcel.ts
+新建导出excel工具文件exportExcel.ts
 
 #### src/views/system/user/UserList.vue
 
-##### 定义导出列名的数组
+定义导出列名的数组
 
-##### 新增函数exportExcelAction
+新增函数exportExcelAction
 
 ## 角色模块功能
 
@@ -524,11 +524,11 @@ el-tabs标签修改
 
 #### src/views/system/role/RoleList.vue
 
-##### 新增loadData的函数
+新增loadData的函数
 
 #### src/api/system/role/role.ts
 
-##### 新增getRoleListApi函数
+新增getRoleListApi函数
 
 #### 刷新和搜索角色列表数据功能
 
@@ -702,31 +702,31 @@ el-tabs标签修改
 
 #### src/views/system/role/RoleList.vue
 
-##### 新增delRole函数
+新增delRole函数
 
 #### src/api/system/role/role.ts
 
-##### 新增delRoleApi函数
+新增delRoleApi函数
 
 ### 导出角色功能
 
 #### src/views/system/role/RoleList.vue
 
-##### 定义导出列名数组
+定义导出列名数组
 
-##### 定义导出函数exportExcelAction
+定义导出函数exportExcelAction
 
 ### 修改角色管理员功能
 
 #### src/views/system/role/RoleList.vue
 
-##### 修改组件代码
+修改组件代码
 
-##### 新增handleChangeAdminState函数
+新增handleChangeAdminState函数
 
 #### src/api/system/role/role.ts
 
-##### 新增updateIsAdminByIdApi函数
+新增updateIsAdminByIdApi函数
 
 ## 菜单模块功能
 
@@ -748,39 +748,39 @@ el-tabs标签修改
 
 #### src/views/system/menu/MenuList.vue
 
-##### 定义一个state对象
+定义一个state对象
 
-##### 新增loadData函数
+新增loadData函数
 
 #### src/api/system/menu/menu.ts
 
-##### 修改getMenuListApi函数
+修改getMenuListApi函数
 
 ### 刷新菜单列表数据功能
 
 #### src/views/system/menu/MenuList.vue
 
-##### 新增refresh函数
+新增refresh函数
 
 ### 添加菜单页面功能
 
 #### src/views/system/menu/components/AddMenu.vue
 
-##### 新建components目录
+新建components目录
 
-##### 新建AddMenu.vue组件
+新建AddMenu.vue组件
 
-##### 设计布局与样式
+设计布局与样式
 
-##### 定义formMenu表单数据对象
+定义formMenu表单数据对象
 
-##### 定义subLoading按钮状态变量
+定义subLoading按钮状态变量
 
 #### src/views/system/menu/MenuList.vue
 
-##### 导入AddMenu.vue组件
+导入AddMenu.vue组件
 
-##### 新增addMenu函数
+新增addMenu函数
 
 #### 添加顶级菜单前端功能实现
 
@@ -796,49 +796,49 @@ el-tabs标签修改
 
 #### src/views/system/menu/MenuList.vue
 
-##### 新增closeAddMenuForm函数
+新增closeAddMenuForm函数
 
 #### src/views/system/menu/components/AddMenu.vue
 
-##### 定义事件
+定义事件
 
-##### 新增close的函数
+新增close的函数
 
 ### 提交表单后关闭表单并刷新表格功能
 
 #### src/views/system/menu/MenuList.vue
 
-##### 新增success函数
+新增success函数
 
-##### 定义事件
+定义事件
 
 #### src/views/system/menu/components/AddMenu.vue
 
-##### 修改addMenu函数
+修改addMenu函数
 
 ### 校验添加菜单表单功能
 
 #### src/views/system/menu/components/AddMenu.vue
 
-##### 定义约束规则对象
+定义约束规则对象
 
-##### 定义表单实例对象，代码如下所示：
+定义表单实例对象，代码如下所示：
 
-##### 修改el-form标签
+修改el-form标签
 
-##### 修改addMenu函数
+修改addMenu函数
 
 ### 选择图标页面布局功能
 
 #### src/views/system/menu/components/Icon.vue
 
-##### 新建Icon.vue组件
+新建Icon.vue组件
 
-##### 设计布局
+设计布局
 
-##### 设计样式
+设计样式
 
-##### 定义图标数组
+定义图标数组
 
 #### src/views/system/menu/components/AddMenu.vue
 
@@ -852,27 +852,27 @@ el-tabs标签修改
 
 #### src/views/system/menu/components/Icon.vue
 
-##### 编写一个计算属性list
+编写一个计算属性list
 
-##### 定义事件
+定义事件
 
-##### 编写选择图标函数
+编写选择图标函数
 
-##### 编写分页事件
+编写分页事件
 
 ### 添加子菜单功能
 
 #### src/views/system/menu/MenuList.vue
 
-##### 新增addSubMenu
+新增addSubMenu
 
 #### src/views/system/menu/components/AddMenu.vue
 
-##### 接收参数
+接收参数
 
-##### 修改表单数据对象
+修改表单数据对象
 
-##### 修改布局代码
+修改布局代码
 
 ### 更新菜单功能
 
@@ -952,11 +952,11 @@ menuInfo填充到表格数据对象formMenu
 
 #### src/views/system/menu/MenuList.vue
 
-##### 新增delMenu函数
+新增delMenu函数
 
 #### src/api/system/menu/menu.ts
 
-##### 新增delMenuApi函数
+新增delMenuApi函数
 
 ## 角色和菜单授权功能
 
@@ -964,65 +964,65 @@ menuInfo填充到表格数据对象formMenu
 
 #### src/views/system/user/components/AddUser.vue
 
-##### 修改布局
+修改布局
 
-##### 修改表单数据对象
+修改表单数据对象
 
-##### 修改约束规则
+修改约束规则
 
-##### 新增getAllRoleList函数
+新增getAllRoleList函数
 
 #### src/api/system/user/user.ts
 
-##### 新增getAllRoleListApi函数
+新增getAllRoleListApi函数
 
 ### 编辑用户时绑定角色
 
 #### src/views/system/user/components/EditUser.vue
 
-##### 修改布局
+修改布局
 
-##### 修改表单数据对象formUser
+修改表单数据对象formUser
 
-##### 修改约束规则对象rules
+修改约束规则对象rules
 
-##### 新增getAllRoleList函数
+新增getAllRoleList函数
 
 ### 添加角色时绑定菜单功能
 
 #### src/views/system/role/components/AddRole.vue
 
-##### 修改布局
+修改布局
 
-##### 修改表单数据对象
+修改表单数据对象
 
-##### 定义树形菜单实例对象
+定义树形菜单实例对象
 
-##### 新增menuList的函数
+新增menuList的函数
 
-##### 定义菜单数据对象
+定义菜单数据对象
 
-##### 修改addRole函数
+修改addRole函数
 
 ### 编辑角色时分配菜单功能
 
 #### src/views/system/role/components/EditRole.vue
 
-##### 修改布局代码
+修改布局代码
 
-##### 修改表单数据对象
+修改表单数据对象
 
-##### 定义树形菜单实例对象
+定义树形菜单实例对象
 
-##### 新增menuList函数
+新增menuList函数
 
-##### 修改editRole函数
+修改editRole函数
 
 ### 根据登录用户的角色获取相应菜单功能
 
 #### src/api/request.ts
 
-##### 修改文件
+修改文件
 
 ## 个人信息设置功能实现
 
@@ -1054,13 +1054,13 @@ menuInfo填充到表格数据对象formMenu
 
 #### 设置TopBar.vue头像
 
-##### 修改用户头像布局
+修改用户头像布局
 
-##### 定义服务路径url
+定义服务路径url
 
-##### 获取登录用户信息
+获取登录用户信息
 
-#### 设置基础信息功能
+### 设置基础信息功能
 
 ##### src/views/system/user/components/PersonalSettings.vue
 
@@ -1138,45 +1138,45 @@ menuInfo填充到表格数据对象formMenu
 
 #### src/views/system/user/components/UpdatePwd.vue
 
-##### 新建UpdatePwd.vue组件
+新建UpdatePwd.vue组件
 
-##### 设计布局
+设计布局
 
-##### 定义表单数据对象modifyPwd
+定义表单数据对象modifyPwd
 
-##### 编写一个校验表单规则对象modifyRules
+编写一个校验表单规则对象modifyRules
 
-##### 定义表单实例对象
+定义表单实例对象
 
-##### 定义提交表单按钮状态subLoading
+定义提交表单按钮状态subLoading
 
-##### 新增函数modifySubmit
+新增函数modifySubmit
 
 #### src/views/system/user/components/PersonalSettings.vue
 
-##### 导入并使用UpdatePwd.vue
+导入并使用UpdatePwd.vue
 
 #### src/api/system/user/usert.ts
 
-##### 新增updatePwdApi函数
+新增updatePwdApi函数
 
 ### 个人详情信息功能
 
 #### src/views/system/user/components/UserInfo.vue
 
-##### 新建UserInfo.vue组件
+新建UserInfo.vue组件
 
 设计布局
 
 #### src/views/system/user/components/PersonalSettings.vue
 
-##### 导入UserInfo.vue组件并使用
+导入UserInfo.vue组件并使用
 
-##### 定义服务器路径变量url
+定义服务器路径变量url
 
-##### 获取登录用户信息
+获取登录用户信息
 
-##### 设计样式
+设计样式
 
 
 
