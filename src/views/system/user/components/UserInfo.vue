@@ -94,7 +94,7 @@ onMounted(()=> {
       <br>
       <p>
         站长邮箱：<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=353628791@qq.com"
-                    target="_blank" data-v-634963c2="">??????@qq.com</a>
+                    target="_blank" data-v-634963c2="">canwangzau@outlook.com</a>
       </p>
 
 

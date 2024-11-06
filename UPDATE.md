@@ -1,5 +1,3 @@
-[TOC]
-
 # 前端项目搭建
 
 ## 项目创建
@@ -1180,13 +1178,72 @@ menuInfo填充到表格数据对象formMenu
 
 设计样式
 
+## 日志功能
 
+### 添加日志功能
 
+#### 编写日志数据模型
 
+##### models/sys_log.go
 
+新建sys_log.go文件，设计数据模型
 
+设置日志表名称
 
+##### models/init.go
 
+设置自动创建表结构
 
+##### define/define.go
 
+定义变量DbPath
 
+##### middleware/Logger.go
+
+新建Logger.go文件
+
+新增responseWriter结构体
+
+新增getOsAndBrowserInfo函数
+
+编写LoggerToDb函数
+
+重写Write方法
+
+新增GetIp2Region函数
+
+##### service/types.go
+
+新增IpInfo结构体
+
+##### utils/ip.go
+
+新增GetClientIP函数
+
+##### router/app.go
+
+Logger.go添加到路由地址
+
+### 获取日志功能
+
+#### models/sys_log.go
+
+新增GetLogList函数
+
+#### service/types.go
+
+新增GetLogListReply结构体
+
+新增GetLogListRequest结构体
+
+#### service/log.go
+
+新建log.go文件
+
+新增GetLogList函数
+
+router/app.go
+
+新增路由地址
+
+### 

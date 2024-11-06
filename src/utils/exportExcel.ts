@@ -14,7 +14,7 @@ export const exportExcel = async ({column,data,filename,autowidth,format})=> {
     // 创建excel工作簿
     const workbook = new Exceljs.Workbook()
     // 设置工作簿属性
-    workbook.creator='xueden'
+    workbook.creator='Rouis'
     workbook.title = filename
     workbook.created = new Date()
     workbook.modified = new Date()
