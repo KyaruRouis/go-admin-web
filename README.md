@@ -6,22 +6,12 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 # 项目搭建
 
-## nodejs v20.18.0
-
-## pinia
-
-## element plus
-
-## Axios
-
-## svg
-
-## nprogress
-
-## exceljs
+nodejs v20.18.0
 
 # 使用帮助
 
 启动命令
+
+npm install
 
 npm run dev
