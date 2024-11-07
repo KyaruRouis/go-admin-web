@@ -81,7 +81,7 @@ const submitForm = (formEl:FormInstance | undefined) => {
 </script>
 
 <template>
-  <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules">
+  <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" @keyup.enter.native="submitForm(ruleFormRef)">
     <el-form-item label="" prop="username">
       <el-input placeholder="请输入用户名" autocomplete="on" style="position: relative;" v-model="ruleForm.username">
         <template #prefix>
