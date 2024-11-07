@@ -64,16 +64,7 @@ const rules = reactive<FormRules>({
   phone: [{required: true,message: '手机号不能为空',trigger: 'blur'}],
   email: [{required: true,message: '邮箱不能为空',trigger: 'blur'}],
   roleId: [
-    { required: true, message: '管理角色不能为空', trigger: 'blur' },
-    { validator: (rule, value, callback) => {
-        if (Number.isInteger(value)) {
-          callback(new Error(`角色ID不能为${value}`));
-        } else {
-          callback();
-        }
-      }, trigger: 'blur'
-    }
-  ],
+    { required: true,message: '管理角色不能为空', trigger: 'blur' }],
 })
 
 // 定义角色下拉选择项数据
