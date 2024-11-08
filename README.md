@@ -9,6 +9,8 @@ If you prefer the English version, please visit [English version](README_en.md)�
 ## 项目演示
 
 [Demo演示地址](http://47.112.126.7:5173/)
+admin
+admin
 
 ## 技术栈
 
