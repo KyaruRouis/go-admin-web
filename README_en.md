@@ -9,6 +9,8 @@ This is a backend management system based on **Gin** and **Vue**, aimed at provi
 ## Project Demo
 
 [Demo Link](http://47.112.126.7:5173/)
+admin
+admin
 
 ## Tech Stack
 
